@@ -2,12 +2,17 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="YZM Analiz">
+<meta name="theme-color" content="#0a0a0f">
 <title>İş İhtiyaç Analiz Formu — Yapay Zeka Merkezi</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#0a0a0f;color:#e8e8f0;font-family:"Segoe UI",system-ui,sans-serif;min-height:100vh}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{background:#0a0a0f;color:#e8e8f0;font-family:"Segoe UI",system-ui,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .page{max-width:700px;margin:0 auto;padding:2rem 1.25rem 4rem}
 .header{text-align:center;padding:2.5rem 1rem 2rem}
 .logo-wrap img{width:88px;height:88px;border-radius:50%;object-fit:cover;border:2px solid rgba(41,182,246,0.4)}
@@ -31,18 +36,18 @@ input:focus,textarea:focus{border-color:#29b6f6}
 textarea{resize:vertical;min-height:82px;line-height:1.6}
 input::placeholder,textarea::placeholder{color:#333355}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:20px;border:1px solid #1e1e3a;font-size:13px;cursor:pointer;color:#777799;transition:all .15s;user-select:none;background:#111122}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:20px;border:1px solid #1e1e3a;font-size:13px;cursor:pointer;color:#777799;transition:all .15s;user-select:none;background:#111122;touch-action:manipulation}
 .chip:hover{border-color:#29b6f6;color:#29b6f6}
 .chip.on,.chip.on:hover{background:rgba(34,197,94,.15);border-color:#22c55e !important;color:#22c55e !important}
 .chip i{font-size:14px}
 .scale-row{display:flex;align-items:center;gap:10px}
 .slbl{font-size:12px;color:#444466;white-space:nowrap}
 .scale-btns{display:flex;gap:5px;flex:1}
-.sbtn{flex:1;padding:7px 0;border-radius:7px;border:1px solid #1e1e3a;font-size:13px;cursor:pointer;background:#111122;color:#555577;transition:all .15s;font-family:inherit}
+.sbtn{flex:1;padding:7px 0;border-radius:7px;border:1px solid #1e1e3a;font-size:13px;cursor:pointer;background:#111122;color:#555577;transition:all .15s;font-family:inherit;touch-action:manipulation}
 .sbtn:hover{border-color:#22c55e;color:#22c55e}
 .sbtn.on,.sbtn.on:hover{background:#22c55e;border-color:#22c55e;color:#0a0a0f;font-weight:700}
 .submit-area{padding:2.25rem 0 1rem;text-align:center}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 32px;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s;font-family:inherit}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 32px;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s;font-family:inherit;touch-action:manipulation}
 .btn-p{background:linear-gradient(135deg,#1565c0,#29b6f6);color:#fff}
 .btn-s{background:#151525;border:1px solid #222244;color:#aaaacc;font-size:13px;padding:8px 18px}
 .btn:hover{opacity:.85}.btn i{font-size:17px}
@@ -101,6 +106,44 @@ input::placeholder,textarea::placeholder{color:#333355}
 .footer{text-align:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid #111122}
 .footer p{font-size:11px;color:#222244}
 .footer span{color:#29b6f6}
+/* Mobile */
+@media(max-width:640px){
+  .page{padding:1.25rem .9rem calc(3rem + env(safe-area-inset-bottom,0px))}
+  .header{padding:1.75rem .5rem 1.25rem}
+  .header h1{font-size:17px}
+  .header p{font-size:12px}
+  .logo-wrap img{width:68px;height:68px}
+  .brand-name{font-size:10px}
+  .section{padding:1.35rem 0}
+  label{font-size:13px}
+  .chip{font-size:12px;padding:5px 10px}
+  .chip i{font-size:13px}
+  .scale-row{gap:6px}
+  .slbl{font-size:11px}
+  .sbtn{font-size:12px;padding:8px 0}
+  .btn{font-size:13px;padding:10px 22px}
+  .lgrid{grid-template-columns:1fr}
+  /* Admin panel */
+  .ainner{padding:1rem .85rem;margin:.5rem}
+  .ahead{flex-direction:column;align-items:flex-start;gap:.75rem}
+  .aactions{flex-wrap:wrap;gap:6px}
+  .aactions .btn{font-size:12px;padding:7px 12px}
+  /* Admin list: mobilde 2 sütun */
+  .lrow{grid-template-columns:1fr auto;gap:6px;padding:10px 12px}
+  .lrow>*:nth-child(3),.lrow>*:nth-child(4),.lrow>*:nth-child(5){display:none}
+  .lrow-head>*:nth-child(3),.lrow-head>*:nth-child(4),.lrow-head>*:nth-child(5){display:none}
+  /* Admin detail */
+  .lhead{flex-direction:column;gap:.5rem}
+  .ld{text-align:left}
+  /* Atoggle */
+  .atoggle{bottom:calc(14px + env(safe-area-inset-bottom,0px));right:14px}
+  .pin-box{width:calc(100vw - 40px);padding:1.5rem}
+  /* iOS Safari uyumluluğu */
+  html{height:-webkit-fill-available;height:100%}
+  body{overscroll-behavior:none}
+  input[type=text],input[type=tel],input[type=email],textarea{font-size:16px}
+  .submit-area{padding-bottom:calc(1rem + env(safe-area-inset-bottom,0px))}
+}
 </style>
 </head>
 <body>
@@ -468,6 +511,23 @@ function expJSON(){
 }
 function dl(href,name){const a=document.createElement("a");a.href=href;a.download=name;a.click();}
 function today(){return new Date().toISOString().slice(0,10);}
+// iOS Safari: klavye açıldığında viewport yüksekliğini güvenli yönet
+(function(){
+  if(!window.visualViewport)return;
+  var _r=document.documentElement,_t=null;
+  function _sync(){clearTimeout(_t);_t=setTimeout(function(){
+    var a=document.activeElement,isF=a&&(a.tagName==='INPUT'||a.tagName==='TEXTAREA');
+    var vvh=Math.round(window.visualViewport.height||window.innerHeight),winH=Math.round(window.innerHeight||vvh);
+    if(isF&&vvh>320&&vvh<winH-80)_r.style.setProperty('--vvh',vvh+'px');
+    else _r.style.removeProperty('--vvh');
+  },60);}
+  window.visualViewport.addEventListener('resize',_sync,{passive:true});
+  window.visualViewport.addEventListener('scroll',_sync,{passive:true});
+  window.addEventListener('orientationchange',function(){clearTimeout(_t);_r.style.removeProperty('--vvh');setTimeout(_sync,250);},{passive:true});
+  document.addEventListener('focusout',function(e){
+    if(e.target&&(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')){clearTimeout(_t);setTimeout(function(){_r.style.removeProperty('--vvh');},120);}
+  },true);
+})();
 </script>
 </body>
 </html>
